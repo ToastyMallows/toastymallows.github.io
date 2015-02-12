@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: bookmarks | Ross Lancaster]]></title>
+  <link href="http://toastymallows.github.io/blog/categories/bookmarks/atom.xml" rel="self"/>
+  <link href="http://toastymallows.github.io/"/>
+  <updated>2015-02-12T01:05:04-05:00</updated>
+  <id>http://toastymallows.github.io/</id>
+  <author>
+    <name><![CDATA[Ross Lancaster]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Why I started using Google Bookmarks]]></title>
+    <link href="http://toastymallows.github.io/why-i-started-using-google-bookmarks/"/>
+    <updated>2013-08-01T19:36:00-04:00</updated>
+    <id>http://toastymallows.github.io/why-i-started-using-google-bookmarks</id>
+    <content type="html"><![CDATA[<p>I never really used bookmarks a while ago, I would just try to remember everything.  Every funny website, good recipe and JavaScript framework I found would just be stored away, soon to be forgotten.  Then I would end up taking 10 or 15 minutes to find it again a month later.  The worst part was, when I did actually try to use bookmark managers in web browsers, I would end up reformatting my computer and forgetting to back them up.</p>
+
+<!--more-->
+
+<p><a href="https://www.google.com/bookmarks/">Google Bookmarks</a> greatly simplified this.  No longer do you have to use a bunch of nested folders to categorize your bookmarks, some in Firefox, some in Chrome.  Google takes all of your cat GIFs and lets you assign tags to them, making them easily searchable later when you want to show your friends.</p>
+
+<p>Being Google, they give you a great way to export your bookmarks to a HTML file for your convenience, or if you&rsquo;re tired of Google.</p>
+
+<p>One of the best parts is there is a button that you can drag into the bookmark bar in the browser of your choice to bookmark the page you&rsquo;re currently on to the Google account you&rsquo;re currently logged in to.  This makes it easy to be more mobile with your bookmarks.</p>
+
+<p>What was that?  You find it weird that you have to still use a browser bookmark to save your new bookmarks?  Yeah ok, move along kid.</p>
+]]></content>
+  </entry>
+  
+</feed>

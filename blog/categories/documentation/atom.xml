@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: documentation | Ross Lancaster]]></title>
+  <link href="http://toastymallows.github.io/blog/categories/documentation/atom.xml" rel="self"/>
+  <link href="http://toastymallows.github.io/"/>
+  <updated>2015-02-12T01:05:04-05:00</updated>
+  <id>http://toastymallows.github.io/</id>
+  <author>
+    <name><![CDATA[Ross Lancaster]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Working on Uncommented Code]]></title>
+    <link href="http://toastymallows.github.io/working-on-uncommented-code/"/>
+    <updated>2013-08-07T22:37:00-04:00</updated>
+    <id>http://toastymallows.github.io/working-on-uncommented-code</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m sure that all of you, if you&rsquo;re in the work force, are well aware that uncommented code is easy to come by.  In big applications and major software companies, as the program grows, so does the code.  And as the code grows, some or most of the code may start to become uncommented.  This may be from other programmers being</p>
+
+<ul>
+  <li>lazy (&ldquo;I&rsquo;ll comment this later&rdquo;)</li>
+  <li>forgetful</li>
+  <li>pompus (&ldquo;My code is readable, it doesn&rsquo;t need comments!&rdquo;)</li>
+  <li>unaware (&ldquo;This regex isn&rsquo;t that hard to follow&rdquo;)</li>
+</ul>
+
+<p>and this is fine.  Things happen, hell even I&rsquo;ve made these mistakes a couple times.  But now you&rsquo;re a new hire to a company and your first task is to implement a feature that many customers have been demanding, but hasn&rsquo;t gathered enough momentum until you arrived.<!--more--></p>
+
+<p>Monday morning after your first cup of coffee you start diving into the code.  After finding the area you&rsquo;ll be working in, you notice something.  <em>&ldquo;Where are the comments?&rdquo;</em>  Then it hits you like a ton of bricks, most of the code you&rsquo;ve been looking at isn&rsquo;t commented.  This isn&rsquo;t the worst feeling in the world but it definitely sucks.</p>
+
+<p>What do you do?  Most of the people you&rsquo;re working with are busy, they don&rsquo;t have time to talk you through every section.  I&rsquo;ve been in this situation, and here&rsquo;s what I did.</p>
+
+<ol>
+  <li>
+    <p>Does your code build?  If so, run it.  This can easily help you pair up what you&rsquo;re seeing as output (GUI or not) with what is behind the scenes.  I know this seems like an easy solution, but having code that actually runs may be rare (especially with daily builds of software that is version controlled), so utilize it!</p>
+  </li>
+  <li>
+    <p>Can you get you code to build?  Try it out.  This will give you a good feeling for the code you&rsquo;ll be working with, putting yourself in the old authors&rsquo; shoes.  Be sure to add comments when you figure things out.</p>
+  </li>
+  <li>
+    <p>If your code doesn&rsquo;t build, that&rsquo;s ok.  Start at your entry point (a button click event or <code>main()</code>) and work your way out, adding comments along the way.  These comments don&rsquo;t have to be in-depth, something like <code>#called from X</code> or <code>#this variable really does Y</code>.  This will help you later when you&rsquo;re adding new things.</p>
+  </li>
+  <li>
+    <p>Is the old author still around?  If so, pick their brain.  Come to them with a detailed and straight-forward set of questions that you obtained after boiling down your code review.  They may not have enough time to talk to you about it so be breif!  The more detatched someone gets from the code they write the harder it is to recall the logic (&ldquo;I know I wrote this line for a reason..&rdquo;).  Hopefully they didn&rsquo;t just write it and move on to something else.</p>
+  </li>
+  <li>
+    <p>Debug! If you&rsquo;re working in <code>Visual Studio</code>, <code>Eclipse</code> or even <code>Notepad++</code>, use the debugger to your advantage.  See a funky looking line?  Not sure what it does?  Run it and see what happens, then comment out the results.  If necessary, make changes to the code to increase readability later on.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+  </li>
+  <li>
+    <p>Draw things out.  I often find that it&rsquo;s easier for me to visualize code when I make a rough sketch on paper.  Don&rsquo;t get wrapped up too much in the format (no UML!), just get something down that you can understand.  <a href="http://cogsci.stackexchange.com/questions/68/does-writing-something-down-help-memorize-it">Sometimes having objects and method calls on paper can help you remember them.</a></p>
+  </li>
+</ol>
+
+<p>All code paths end, and eventually the logic you&rsquo;re tracing will too.  Eventually you&rsquo;ll figure out everything you need to know to start working on that next big project.  </p>
+
+<p>But before you forget, comment those changes you just made before lunchtime starts.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Of course this depends on you being able to run your program.<a href="#fnref:1" rel="reference">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+  </entry>
+  
+</feed>
