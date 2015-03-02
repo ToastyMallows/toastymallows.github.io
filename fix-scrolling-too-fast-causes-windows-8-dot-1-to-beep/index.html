@@ -5,11 +5,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Category: Microsoft  | Ross Lancaster</title>
+	<title>Fix: Scrolling too fast causes Windows 8.1 to beep  | Ross Lancaster</title>
 
 <meta name="author" content="Ross Lancaster"> 
 
-<meta name="description" content="Category: Microsoft"> <meta name="keywords" content="">
+<meta name="description" content="I recently upgraded to Windows 8.1 and I noticed that my system would beep loudly or ring its system bell when I scrolled my mouse wheel really fast &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -94,70 +94,63 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner">
-	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Fix: Scrolling Too Fast Causes Windows 8.1 to Beep</h2>
+	<div class="entry-content"><p>I recently upgraded to Windows 8.1 and I noticed that my system would beep loudly or ring its system bell when I scrolled my mouse wheel really fast.  I think that it is compounded by the fact that I have a <a href="http://support.logitech.com/product/gaming-mouse-g500">gaming mouse</a>, which allows me to spin the scroll wheel to simulate infinite scrolling.  Here&rsquo;s how to turn it off in Windows 8.1.</p>
+
+<ol>
+  <li>Open Registry Edit (Win + R, type regedit, hit enter)</li>
+  <li>Navigate to <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Beep</code></li>
+  <li>Double click on the key <code>Start</code></li>
+  <li>Change the value from <strong>1</strong> to <strong>4</strong></li>
+  <li>Reboot</li>
+</ol>
+
+<p>Now when you scroll your scroll wheel really quickly, you won&rsquo;t hear that annoying beep anymore!  I&rsquo;m still not sure exactly what causes the beep, because it only happens in some applications.  For example, it won&rsquo;t happen in Google Chrome if I scroll on a webpage really quickly, but it will happen if I scroll inside of Spotify.  If anyone has more information abot this I&rsquo;d be curious to hear what it is!</p>
+
+<p>More information here:</p>
+
+<ul>
+  <li><a href="https://superuser.com/questions/689624/cant-find-non-present-devices-on-windows-8-1">SuperUser: Can&rsquo;t find Non-Present devices on Windows 8.1</a></li>
+  <li><a href="https://code.google.com/p/altdrag/issues/detail?id=139">Altdrag: Bug - beeping on fast scrolling</a> - User suggests that muting System Sounds will fix it, but then you won&rsquo;t hear any other system sounds, which might be an easy fix for someone that doesn&rsquo;t want to edit their registry.</li>
+</ul>
+</div>
 
 
-	
-	
-	<section class="archives"><h1 class="year">2015</h1>
+<div class="meta">
+	<div class="date">
 
-<article>
-	<h2 class="title"><a href="/fix-scrolling-too-fast-causes-windows-8-dot-1-to-beep/">Fix: Scrolling too fast causes Windows 8.1 to beep</a></h2>
-	<div class="meta">
-		<span class="date">Mar  1</span>
-		<span class="tags">
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-01T19:34:00-05:00" pubdate data-updated="true">01 March 2015</time></div>
+	<div class="tags">
 
 
 	<a class='category' href='/blog/categories/microsoft/'>Microsoft</a>, <a class='category' href='/blog/categories/fix/'>fix</a>
 
 
-</span>
-	    
+</div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
 	</div>
-</article>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
-	
-
-
-	
-	
-		</section>
-	
-	<section class="archives"><h1 class="year">2013</h1>
-
-<article>
-	<h2 class="title"><a href="/my-fileupload-asp-dot-net-function/">My FileUpload ASP.NET function</a></h2>
-	<div class="meta">
-		<span class="date">Dec 23</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/asp-dot-net/'>ASP.NET</a>, <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>, <a class='category' href='/blog/categories/upload/'>upload</a>, <a class='category' href='/blog/categories/webdev/'>webdev</a>
-
-
-</span>
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/iis-8-404-error/">IIS 8 404 Error</a></h2>
-	<div class="meta">
-		<span class="date">Oct 16</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/asp-dot-net/'>ASP.NET</a>, <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>, <a class='category' href='/blog/categories/webdev/'>webdev</a>
-
-
-</span>
-	    
-	</div>
-</article>
 
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2015

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: fix | Ross Lancaster]]></title>
+  <link href="http://toastymallows.github.io/blog/categories/fix/atom.xml" rel="self"/>
+  <link href="http://toastymallows.github.io/"/>
+  <updated>2015-03-01T19:54:15-05:00</updated>
+  <id>http://toastymallows.github.io/</id>
+  <author>
+    <name><![CDATA[Ross Lancaster]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fix: Scrolling too fast causes Windows 8.1 to beep]]></title>
+    <link href="http://toastymallows.github.io/fix-scrolling-too-fast-causes-windows-8-dot-1-to-beep/"/>
+    <updated>2015-03-01T19:34:00-05:00</updated>
+    <id>http://toastymallows.github.io/fix-scrolling-too-fast-causes-windows-8-dot-1-to-beep</id>
+    <content type="html"><![CDATA[<p>I recently upgraded to Windows 8.1 and I noticed that my system would beep loudly or ring its system bell when I scrolled my mouse wheel really fast.  I think that it is compounded by the fact that I have a <a href="http://support.logitech.com/product/gaming-mouse-g500">gaming mouse</a>, which allows me to spin the scroll wheel to simulate infinite scrolling.  Here&rsquo;s how to turn it off in Windows 8.1.</p>
+
+<ol>
+  <li>Open Registry Edit (Win + R, type regedit, hit enter)</li>
+  <li>Navigate to <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Beep</code></li>
+  <li>Double click on the key <code>Start</code></li>
+  <li>Change the value from <strong>1</strong> to <strong>4</strong></li>
+  <li>Reboot</li>
+</ol>
+
+<p>Now when you scroll your scroll wheel really quickly, you won&rsquo;t hear that annoying beep anymore!  I&rsquo;m still not sure exactly what causes the beep, because it only happens in some applications.  For example, it won&rsquo;t happen in Google Chrome if I scroll on a webpage really quickly, but it will happen if I scroll inside of Spotify.  If anyone has more information abot this I&rsquo;d be curious to hear what it is!</p>
+
+<p>More information here:</p>
+
+<ul>
+  <li><a href="https://superuser.com/questions/689624/cant-find-non-present-devices-on-windows-8-1">SuperUser: Can&rsquo;t find Non-Present devices on Windows 8.1</a></li>
+  <li><a href="https://code.google.com/p/altdrag/issues/detail?id=139">Altdrag: Bug - beeping on fast scrolling</a> - User suggests that muting System Sounds will fix it, but then you won&rsquo;t hear any other system sounds, which might be an easy fix for someone that doesn&rsquo;t want to edit their registry.</li>
+</ul>
+]]></content>
+  </entry>
+  
+</feed>
