@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Microsoft | Ross Lancaster]]></title>
+  <link href="http://ToastyMallows.github.io/blog/categories/microsoft/atom.xml" rel="self"/>
+  <link href="http://ToastyMallows.github.io/"/>
+  <updated>2015-08-24T00:29:30-04:00</updated>
+  <id>http://ToastyMallows.github.io/</id>
+  <author>
+    <name><![CDATA[Ross Lancaster]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fix: Scrolling too fast causes Windows 8.1 to beep]]></title>
+    <link href="http://ToastyMallows.github.io/fix-scrolling-too-fast-causes-windows-8-dot-1-to-beep/"/>
+    <updated>2015-03-01T19:34:00-05:00</updated>
+    <id>http://ToastyMallows.github.io/fix-scrolling-too-fast-causes-windows-8-dot-1-to-beep</id>
+    <content type="html"><![CDATA[<p>I recently upgraded to Windows 8.1 and I noticed that my system would beep loudly or ring its system bell when I scrolled my mouse wheel really fast.  I think that it is compounded by the fact that I have a <a href="http://support.logitech.com/product/gaming-mouse-g500">gaming mouse</a>, which allows me to spin the scroll wheel to simulate infinite scrolling.  Here’s how to turn it off in Windows 8.1.</p>
+
+<ol>
+  <li>Open Registry Edit (Win + R, type regedit, hit enter)</li>
+  <li>Navigate to <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Beep</code></li>
+  <li>Double click on the key <code>Start</code></li>
+  <li>Change the value from <strong>1</strong> to <strong>4</strong></li>
+  <li>Reboot</li>
+</ol>
+
+<p>Now when you scroll your scroll wheel really quickly, you won’t hear that annoying beep anymore!  I’m still not sure exactly what causes the beep, because it only happens in some applications.  For example, it won’t happen in Google Chrome if I scroll on a webpage really quickly, but it will happen if I scroll inside of Spotify.  If anyone has more information abot this I’d be curious to hear what it is!</p>
+
+<p>More information here:</p>
+
+<ul>
+  <li><a href="https://superuser.com/questions/689624/cant-find-non-present-devices-on-windows-8-1">SuperUser: Can’t find Non-Present devices on Windows 8.1</a></li>
+  <li><a href="https://code.google.com/p/altdrag/issues/detail?id=139">Altdrag: Bug - beeping on fast scrolling</a> - User suggests that muting System Sounds will fix it, but then you won’t hear any other system sounds, which might be an easy fix for someone that doesn’t want to edit their registry.</li>
+</ul>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My FileUpload ASP.NET function]]></title>
+    <link href="http://ToastyMallows.github.io/my-fileupload-asp-dot-net-function/"/>
+    <updated>2013-12-23T18:29:00-05:00</updated>
+    <id>http://ToastyMallows.github.io/my-fileupload-asp-dot-net-function</id>
+    <content type="html"><![CDATA[<p>I’m making a website for my family reunion.  I found a couple good sites that had some examples of ASP.NET’s FileUpload control, but I’m going to post mine here so that anyone that finds it useful can use it. I’m using Visual Studio 2012 and ASP.NET 4.5.</p>
+
+<p>I wanted to be able to have the family upload files and I wanted to have them automatically sorted by what year we had the reunion, and by content type.  That would make it easier for me to set up ASP.NET membership security on the whole folder so that anonymous requested couldn’t view the content.  It was also be easier to display the content later.</p>
+
+<!--more-->
+
+<p>Front-end:
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='aspx-cs'><span class='line'><span class="nt">&lt;asp:fileupload</span> <span class="na">id=</span><span class="s">&quot;FileUploadControl&quot;</span> <span class="na">runat=</span><span class="s">&quot;server&quot;</span> <span class="na">allowmultiple=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;asp:button</span> <span class="na">runat=</span><span class="s">&quot;server&quot;</span> <span class="na">id=</span><span class="s">&quot;UploadButton&quot;</span> <span class="na">onclick=</span><span class="s">&quot;UploadButton_Click&quot;</span> <span class="na">text=</span><span class="s">&quot;Upload&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;asp:dropdownlist</span> <span class="na">runat=</span><span class="s">&quot;server&quot;</span> <span class="na">id=</span><span class="s">&quot;reunionYears&quot;</span> <span class="na">autopostback=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;asp:label</span> <span class="na">runat=</span><span class="s">&quot;server&quot;</span> <span class="na">id=</span><span class="s">&quot;StatusLabel&quot;</span> <span class="na">cssclass=</span><span class="s">&quot;uploadStatus&quot;</span> <span class="na">text=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Code-behind:
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">protected</span> <span class="k">void</span> <span class="nf">UploadButton_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>	<span class="kt">bool</span> <span class="n">success</span> <span class="p">=</span> <span class="k">false</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">pre</span><span class="p">&gt;&lt;</span><span class="n">code</span><span class="p">&gt;</span><span class="k">if</span> <span class="p">(</span><span class="n">FileUploadControl</span><span class="p">.</span><span class="n">HasFile</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">try</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>	<span class="k">foreach</span> <span class="p">(</span><span class="n">HttpPostedFile</span> <span class="n">file</span> <span class="k">in</span> <span class="n">FileUploadControl</span><span class="p">.</span><span class="n">PostedFiles</span><span class="p">)</span>
+</span><span class='line'>	<span class="p">{</span>
+</span><span class='line'>	    <span class="kt">string</span> <span class="n">content</span> <span class="p">=</span> <span class="n">file</span><span class="p">.</span><span class="n">ContentType</span><span class="p">;</span>
+</span><span class='line'>	    <span class="kt">string</span> <span class="n">filename</span> <span class="p">=</span> <span class="n">Path</span><span class="p">.</span><span class="n">GetFileNameWithoutExtension</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="n">FileName</span><span class="p">);</span>
+</span><span class='line'>	    <span class="kt">string</span> <span class="n">extension</span> <span class="p">=</span> <span class="n">Path</span><span class="p">.</span><span class="n">GetExtension</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="n">FileName</span><span class="p">);</span>
+</span><span class='line'>	    <span class="kt">string</span> <span class="n">folderName</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>	    <span class="k">if</span> <span class="p">(</span><span class="n">content</span> <span class="p">==</span> <span class="s">&quot;image/jpeg&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;image/pjpeg&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;image/png&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;image/tiff&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;image/gif&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;image/bmp&quot;</span><span class="p">)</span>
+</span><span class='line'>	    <span class="p">{</span>
+</span><span class='line'>		<span class="n">folderName</span> <span class="p">=</span> <span class="s">&quot;Images&quot;</span><span class="p">;</span>
+</span><span class='line'>	    <span class="p">}</span>
+</span><span class='line'>	    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">content</span> <span class="p">==</span> <span class="s">&quot;text/plain&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;text/html&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;application/pdf&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;application/rtf&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;application/msword&quot;</span> <span class="p">||</span> <span class="n">content</span><span class="p">==</span><span class="s">&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;</span><span class="p">)</span>
+</span><span class='line'>	    <span class="p">{</span>
+</span><span class='line'>		<span class="n">folderName</span> <span class="p">=</span> <span class="s">&quot;Text&quot;</span><span class="p">;</span>
+</span><span class='line'>	    <span class="p">}</span>
+</span><span class='line'>	    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">content</span> <span class="p">==</span> <span class="s">&quot;video/mp4&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;video/mpeg&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;video/x-msvideo&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;video/quicktime&quot;</span><span class="p">)</span>
+</span><span class='line'>	    <span class="p">{</span>
+</span><span class='line'>		<span class="n">folderName</span> <span class="p">=</span> <span class="s">&quot;Video&quot;</span><span class="p">;</span>
+</span><span class='line'>	    <span class="p">}</span>
+</span><span class='line'>	    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">content</span> <span class="p">==</span> <span class="s">&quot;audio/mpeg&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;audio/ogg&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;audio/x-wav&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;audio/x-ms-wma&quot;</span> <span class="p">||</span> <span class="n">content</span> <span class="p">==</span> <span class="s">&quot;audio/x-aac&quot;</span><span class="p">)</span>
+</span><span class='line'>	    <span class="p">{</span>
+</span><span class='line'>		<span class="n">folderName</span> <span class="p">=</span> <span class="s">&quot;Audio&quot;</span><span class="p">;</span>
+</span><span class='line'>	    <span class="p">}</span>
+</span><span class='line'>	    <span class="k">else</span>
+</span><span class='line'>	    <span class="p">{</span>
+</span><span class='line'>		<span class="n">StatusLabel</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">&quot;Upload status: Failed!  Unsupported format &#39;&quot;</span> <span class="p">+</span> <span class="n">content</span> <span class="p">+</span> <span class="s">&quot;&#39;&quot;</span><span class="p">;</span>
+</span><span class='line'>		<span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="p">();</span>
+</span><span class='line'>		<span class="c1">//goes to catch on any failure</span>
+</span><span class='line'>	    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>	    <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="s">&quot;~/Content/ReunionContent/&quot;</span> <span class="p">+</span> <span class="n">reunionYears</span><span class="p">.</span><span class="n">SelectedValue</span> <span class="p">+</span> <span class="s">&quot;/&quot;</span> <span class="p">+</span> <span class="n">folderName</span><span class="p">;</span>
+</span><span class='line'>	    <span class="k">if</span> <span class="p">(!</span><span class="n">Directory</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="n">path</span><span class="p">)))</span>
+</span><span class='line'>	    <span class="p">{</span>
+</span><span class='line'>		<span class="n">Directory</span><span class="p">.</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="n">path</span><span class="p">));</span>
+</span><span class='line'>	    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>	    <span class="n">path</span> <span class="p">+=</span> <span class="s">&quot;/&quot;</span> <span class="p">+</span> <span class="n">filename</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>	    <span class="kt">string</span> <span class="n">makeFileUnique</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>	    <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>	    <span class="k">while</span> <span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="n">path</span> <span class="p">+</span> <span class="n">makeFileUnique</span> <span class="p">+</span> <span class="n">extension</span><span class="p">)))</span>
+</span><span class='line'>	    <span class="p">{</span>
+</span><span class='line'>		<span class="n">makeFileUnique</span> <span class="p">=</span> <span class="s">&quot;-&quot;</span> <span class="p">+</span> <span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+</span><span class='line'>		<span class="n">i</span><span class="p">++;</span>
+</span><span class='line'>	    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>	    <span class="c1">//makeFileUnique could be empty string on first upload</span>
+</span><span class='line'>	    <span class="n">path</span> <span class="p">+=</span> <span class="n">makeFileUnique</span> <span class="p">+</span> <span class="n">extension</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>	    <span class="c1">//this actually &quot;uploads&quot; the file to the server path</span>
+</span><span class='line'>	    <span class="n">FileUploadControl</span><span class="p">.</span><span class="n">SaveAs</span><span class="p">(</span><span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="n">path</span><span class="p">));</span>
+</span><span class='line'>	<span class="p">}</span>
+</span><span class='line'>	<span class="n">success</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">catch</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>	<span class="n">success</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">finally</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>	<span class="k">if</span> <span class="p">(</span><span class="n">success</span><span class="p">)</span>
+</span><span class='line'>	<span class="p">{</span>
+</span><span class='line'>	    <span class="n">StatusLabel</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">&quot;Upload status: Success!&quot;</span><span class="p">;</span>
+</span><span class='line'>	<span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>Feel free to use this code on your website!  I imagine you’ll need to tweak it a bit though :)
+Happy coding!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[IIS 8 404 Error]]></title>
+    <link href="http://ToastyMallows.github.io/iis-8-404-error/"/>
+    <updated>2013-10-16T21:07:00-04:00</updated>
+    <id>http://ToastyMallows.github.io/iis-8-404-error</id>
+    <content type="html"><![CDATA[<p>Getting a 404 error on your newly configured ASP.NET website?  When I went to /localhost/mywebsite/ I didn’t get anything, all I got was a 404 error.</p>
+
+<p>If this is happening to you, make sure to go to:</p>
+
+<pre><code>Control Panel &gt; Programs and Features &gt; Turn Windows features on or off
+Internet Information Services &gt; World Wide Web Services &gt; Application Development Features
+</code></pre>
+
+<p>Make sure your version of ASP.NET is checked (mine was ASP.NET 4.5).  This will check a bunch of other things in the dropdown like ISAPI Filters and .NET Extensibility, that is fine.</p>
+
+<p>Click ok and run iisreset.  This should make the problem go away!</p>
+]]></content>
+  </entry>
+  
+</feed>

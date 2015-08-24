@@ -1,0 +1,188 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>Fix: Scrolling too fast causes Windows 8.1 to beep  | Ross Lancaster</title>
+
+<meta name="author" content="Ross Lancaster"> 
+
+<meta name="description" content="I recently upgraded to Windows 8.1 and I noticed that my system would beep loudly or ring its system bell when I scrolled my mouse wheel really fast &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="http://feeds.feedburner.com/toastymallows" rel="alternate" title="Ross Lancaster" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Ross Lancaster</a></h1>
+<h4>&#35;define blog</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:ToastyMallows.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Fix: Scrolling Too Fast Causes Windows 8.1 to Beep</h2>
+	<div class="entry-content"><p>I recently upgraded to Windows 8.1 and I noticed that my system would beep loudly or ring its system bell when I scrolled my mouse wheel really fast.  I think that it is compounded by the fact that I have a <a href="http://support.logitech.com/product/gaming-mouse-g500">gaming mouse</a>, which allows me to spin the scroll wheel to simulate infinite scrolling.  Here’s how to turn it off in Windows 8.1.</p>
+
+<ol>
+  <li>Open Registry Edit (Win + R, type regedit, hit enter)</li>
+  <li>Navigate to <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Beep</code></li>
+  <li>Double click on the key <code>Start</code></li>
+  <li>Change the value from <strong>1</strong> to <strong>4</strong></li>
+  <li>Reboot</li>
+</ol>
+
+<p>Now when you scroll your scroll wheel really quickly, you won’t hear that annoying beep anymore!  I’m still not sure exactly what causes the beep, because it only happens in some applications.  For example, it won’t happen in Google Chrome if I scroll on a webpage really quickly, but it will happen if I scroll inside of Spotify.  If anyone has more information abot this I’d be curious to hear what it is!</p>
+
+<p>More information here:</p>
+
+<ul>
+  <li><a href="https://superuser.com/questions/689624/cant-find-non-present-devices-on-windows-8-1">SuperUser: Can’t find Non-Present devices on Windows 8.1</a></li>
+  <li><a href="https://code.google.com/p/altdrag/issues/detail?id=139">Altdrag: Bug - beeping on fast scrolling</a> - User suggests that muting System Sounds will fix it, but then you won’t hear any other system sounds, which might be an easy fix for someone that doesn’t want to edit their registry.</li>
+</ul>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-01T19:34:00-05:00" pubdate data-updated="true">01 March 2015</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/microsoft/'>Microsoft</a>, <a class='category' href='/blog/categories/fix/'>fix</a>
+
+
+</div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2015
+
+    Ross Lancaster
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-53912666-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: brainstorm | Ross Lancaster]]></title>
+  <link href="http://ToastyMallows.github.io/blog/categories/brainstorm/atom.xml" rel="self"/>
+  <link href="http://ToastyMallows.github.io/"/>
+  <updated>2015-08-24T00:29:30-04:00</updated>
+  <id>http://ToastyMallows.github.io/</id>
+  <author>
+    <name><![CDATA[Ross Lancaster]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Programming Ideas: Closed Source to Open Source]]></title>
+    <link href="http://ToastyMallows.github.io/programming-ideas-closed-source-to-open-source/"/>
+    <updated>2013-08-08T23:05:00-04:00</updated>
+    <id>http://ToastyMallows.github.io/programming-ideas-closed-source-to-open-source</id>
+    <content type="html"><![CDATA[<p>Today I was trying to rack my brain and think of some big programs that don’t really have an open source equivilent.  I posed the question to one of my co-workers, at first he mentioned a couple of games.  I quickly told him to forget about games and focus on software.</p>
+
+<p>I said “Imagine if GIMP didn’t exist as an open source alternative to Adobe Photoshop, that would be a good example.”</p>
+
+<p>He pondered for a minute and he couldn’t really come up with anything.</p>
+
+<p>Do all programs have an open source alternative?<!--more--></p>
+
+<p>After checking going through the list of programs I work with frequently I only found one, <a href="http://whatpulse.org/">Whatpulse</a>.  If you don’t know what Whatpulse does, it tracks your mouseclicks and keyboard clicks and presents the data in a nice, reasonable fashion.  It isn’t a keylogger, it just counts how many times keys and mouse buttons are pressed.  Later on mouse movement distance was added, as well as scroll wheel distance.</p>
+
+<p>This data is then <em>pulsed</em> to their servers so that things are available on the web.  The site lets users have a dynamic image made so that people can display their stats.  In fact, I have one on my <a href="/about">About</a> page.</p>
+
+<p>One of the main reasons that the code isn’t open source is that if it was, people would figure out how to cheat (simulate key presses and mouse clicks), and it would make the competing aspect pointless.  Some people don’t use Whatpulse because they’re worried about it actually being a keylogger (even though the software has been around for 10 years now and hasn’t had one reported incident).</p>
+
+<p>But, let’s just assume that someone wants to run all of this on their local machine, and not pulse it to a webserver or anything else, I couldn’t really find an alternative for just tracking how many key presses and mouse clicks you have.  This would be a great open source project for someone (maybe me) to start and pursue.</p>
+
+<p>Damn, I’ve been using Whatpulse for 9 years?</p>
+]]></content>
+  </entry>
+  
+</feed>

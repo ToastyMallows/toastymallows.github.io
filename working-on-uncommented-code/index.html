@@ -1,0 +1,217 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>Working on Uncommented Code  | Ross Lancaster</title>
+
+<meta name="author" content="Ross Lancaster"> 
+
+<meta name="description" content="I’m sure that all of you, if you’re in the work force, are well aware that uncommented code is easy to come by. In big applications and major &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="http://feeds.feedburner.com/toastymallows" rel="alternate" title="Ross Lancaster" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Ross Lancaster</a></h1>
+<h4>&#35;define blog</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:ToastyMallows.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Working on Uncommented Code</h2>
+	<div class="entry-content"><p>I’m sure that all of you, if you’re in the work force, are well aware that uncommented code is easy to come by.  In big applications and major software companies, as the program grows, so does the code.  And as the code grows, some or most of the code may start to become uncommented.  This may be from other programmers being</p>
+
+<ul>
+  <li>lazy (“I’ll comment this later”)</li>
+  <li>forgetful</li>
+  <li>pompus (“My code is readable, it doesn’t need comments!”)</li>
+  <li>unaware (“This regex isn’t that hard to follow”)</li>
+</ul>
+
+<p>and this is fine.  Things happen, hell even I’ve made these mistakes a couple times.  But now you’re a new hire to a company and your first task is to implement a feature that many customers have been demanding, but hasn’t gathered enough momentum until you arrived.<!--more--></p>
+
+<p>Monday morning after your first cup of coffee you start diving into the code.  After finding the area you’ll be working in, you notice something.  <em>“Where are the comments?”</em>  Then it hits you like a ton of bricks, most of the code you’ve been looking at isn’t commented.  This isn’t the worst feeling in the world but it definitely sucks.</p>
+
+<p>What do you do?  Most of the people you’re working with are busy, they don’t have time to talk you through every section.  I’ve been in this situation, and here’s what I did.</p>
+
+<ol>
+  <li>
+    <p>Does your code build?  If so, run it.  This can easily help you pair up what you’re seeing as output (GUI or not) with what is behind the scenes.  I know this seems like an easy solution, but having code that actually runs may be rare (especially with daily builds of software that is version controlled), so utilize it!</p>
+  </li>
+  <li>
+    <p>Can you get you code to build?  Try it out.  This will give you a good feeling for the code you’ll be working with, putting yourself in the old authors’ shoes.  Be sure to add comments when you figure things out.</p>
+  </li>
+  <li>
+    <p>If your code doesn’t build, that’s ok.  Start at your entry point (a button click event or <code>main()</code>) and work your way out, adding comments along the way.  These comments don’t have to be in-depth, something like <code>#called from X</code> or <code>#this variable really does Y</code>.  This will help you later when you’re adding new things.</p>
+  </li>
+  <li>
+    <p>Is the old author still around?  If so, pick their brain.  Come to them with a detailed and straight-forward set of questions that you obtained after boiling down your code review.  They may not have enough time to talk to you about it so be breif!  The more detatched someone gets from the code they write the harder it is to recall the logic (“I know I wrote this line for a reason..”).  Hopefully they didn’t just write it and move on to something else.</p>
+  </li>
+  <li>
+    <p>Debug! If you’re working in <code>Visual Studio</code>, <code>Eclipse</code> or even <code>Notepad++</code>, use the debugger to your advantage.  See a funky looking line?  Not sure what it does?  Run it and see what happens, then comment out the results.  If necessary, make changes to the code to increase readability later on.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+  </li>
+  <li>
+    <p>Draw things out.  I often find that it’s easier for me to visualize code when I make a rough sketch on paper.  Don’t get wrapped up too much in the format (no UML!), just get something down that you can understand.  <a href="http://cogsci.stackexchange.com/questions/68/does-writing-something-down-help-memorize-it">Sometimes having objects and method calls on paper can help you remember them.</a></p>
+  </li>
+</ol>
+
+<p>All code paths end, and eventually the logic you’re tracing will too.  Eventually you’ll figure out everything you need to know to start working on that next big project.  </p>
+
+<p>But before you forget, comment those changes you just made before lunchtime starts.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Of course this depends on you being able to run your program.<a href="#fnref:1" rel="reference">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-07T22:37:00-04:00" pubdate data-updated="true">07 August 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/documentation/'>documentation</a>, <a class='category' href='/blog/categories/programming/'>programming</a>
+
+
+</div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2015
+
+    Ross Lancaster
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-53912666-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+
+
+</body>
+</html>
