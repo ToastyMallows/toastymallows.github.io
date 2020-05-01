@@ -1,21 +1,111 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title class="SSGTitle">Test post</title>
-	</head>
-	<body>
-		<div id="SSGHeader"><h3>Ross Lancaster</h3>
 
-<div id="SSGHeaderPages"><div><span><a href="pages/about">About</a></span></div></div></div>
-		<div id="SSGCategories"></div>
-		<div id="SSGBlog"><p>This is a test blog post!</p></div>
-		<div>
-			
+<head>
+	<!--Lovingly hand-coded by Ross 😎-->
+	<title>ToastyMallows</title>
+	<style>
+		body {
+			border: 0;
+			margin: 0;
+			padding: 0;
+			color: #cccccc;
+			font-family: Segoe WPC, Segoe UI, sans-serif;
+			user-select: none;
+		}
+
+		.wrapper {
+			display: flex;
+			flex-flow: column nowrap;
+			align-items: stretch;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
+		.header {
+			background-color: #3c3c3c;
+			height: 32px;
+		}
+
+		.headerWrapper {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			height: 100%;
+			justify-content: flex-start;
+		}
+
+		.headerWrapper * {
+			display: inline-block;
+			text-align: center;
+			padding: 10px 7px;
+		}
+
+		.headerIcon {
+			max-width: 32px;
+			padding: 6px 0 0 0;
+			margin: 0 5px 0 5px;
+		}
+
+		.headerMenuItem:hover {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		.bodyWrapper {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: stretch;
+			height: 100%;
+		}
+
+		.sideMenu {
+			background-color: #333333;
+			flex-basis: 48px;
+			padding-top: 10px;
+			text-align: center;
+		}
+
+		.flyoutPane {
+			background-color: #252526;
+			width: 300px;
+			padding-top: 10px;
+			text-align: center;
+		}
+
+		.file {
+			background-color: #1e1e1e;
+			flex-grow: 1;
+			font-family: 'Fira Code', monospace;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<div class="headerWrapper">
+				<div class="headerIcon">
+					<img src="favicon.png" />
+				</div>
+				<div class="headerMenuItem">File</div>
+				<div class="headerMenuItem">Edit</div>
+				<div class="headerMenuItem">Selection</div>
+				<div class="headerMenuItem">View</div>
+				<div class="headerMenuItem">Go</div>
+				<div class="headerMenuItem">Run</div>
+				<div class="headerMenuItem">Terminal</div>
+				<div class="headerMenuItem">Help</div>
+			</div>
 		</div>
-		<div>
-			
+		<div class="bodyWrapper">
+			<div class="sideMenu">Side Menu</div>
+			<div class="flyoutPane">Flyout Pane</div>
+			<div class="file">File</div>
 		</div>
-		<div class="SSGDate">26-Apr-17 22:06:00</div>
-		<div id="SSGFooter"><div>Footer</div></div>
-	</body>
+	</div>
+</body>
+
 </html>

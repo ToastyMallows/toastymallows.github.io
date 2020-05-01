@@ -1,6 +1,2 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vs/slnx.sqlite
-/.vs/toastymallows.github.io/v15/.suo
+﻿.vscode
+!.vscode/settings.json
