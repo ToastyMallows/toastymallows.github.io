@@ -4,6 +4,7 @@
 <head>
 	<!--Lovingly hand-coded by Ross 😎-->
 	<title>ToastyMallows</title>
+	<link href="./font/codicon.css" rel="stylesheet">
 	<link href="index.css" rel="stylesheet">
 	<style>
 		body {
@@ -69,10 +70,38 @@
 		.sideMenu {
 			background-color: #333333;
 			flex-basis: 48px;
-			padding-top: 10px;
 			text-align: center;
 			display: flex;
 			flex-flow: column nowrap;
+			justify-content: space-between;
+		}
+
+		.sideMenuItem {
+			cursor: pointer;
+			margin: 0 0 4px 0;
+			padding: 10px 0;
+			width: 48px;
+			max-width: 48px;
+			color: #858577;
+		}
+
+		.sideMenuItem:hover {
+			color: white;
+		}
+
+		.sideMenuItem .codicon {
+			font-size: 24px;
+			font-weight: 500;
+		}
+
+		.selectedSideMenuItem {
+			color: white;
+			border-left: 1px solid white;
+		}
+
+		.selectedSideMenuItem .codicon {
+			font-size: 24px;
+			font-weight: 500;
 		}
 
 		.flyoutPane {
@@ -113,7 +142,6 @@
 			white-space: nowrap;
 			font-size: 12px;
 			color: white;
-			padding-top: 1px;
 		}
 
 		.footerMenuItem {
@@ -123,6 +151,21 @@
 			margin: 0 4px;
 			cursor: pointer;
 			padding: 0 4px;
+			line-height: 22px;
+			display: block;
+		}
+
+		.footerMenuItem a {
+			display: flex;
+		}
+
+		.footerMenuItem a span {
+			padding: 0 2px;
+		}
+
+		.footerMenuItem .codicon {
+			line-height: 22px;
+			font-size: 14px;
 		}
 
 		.footerLeft .footerMenuItem:first-child {
@@ -140,6 +183,12 @@
 		.footerRemoteDev {
 			background-color: #16825D;
 			width: 32px;
+			align-items: center;
+			height: 100%;
+			justify-content: flex-start;
+			cursor: pointer;
+			line-height: 22px;
+			display: block;
 		}
 
 		.footerRemoteDev:hover {
@@ -167,29 +216,84 @@
 		</div>
 		<div class="bodyWrapper">
 			<div class="sideMenu">
-
+				<div class="sideMenuTop">
+					<div class="sideMenuItem selectedSideMenuItem" title="Explorer (Ctrl+Shift+E)">
+						<span class="codicon codicon-files"></span>
+					</div>
+					<div class="sideMenuItem" title="Search (Ctrl+Shift+F)">
+						<span class="codicon codicon-search"></span>
+					</div>
+					<div class="sideMenuItem" title="Source Control (Ctrl+Shift+G)">
+						<span class="codicon codicon-git-branch"></span>
+					</div>
+					<div class="sideMenuItem" title="Run (Ctrl+Shift+D)">
+						<span class="codicon codicon-debug-alt-2"></span>
+					</div>
+					<div class="sideMenuItem" title="Remote Explorer">
+						<span class="codicon codicon-remote-explorer"></span>
+					</div>
+					<div class="sideMenuItem" title="Extensions (Ctrl+Shift+X)">
+						<span class="codicon codicon-extensions"></span>
+					</div>
+				</div>
+				<div class="sideMenuBottom">
+					<div class="sideMenuItem" title="Manage">
+						<span class="codicon codicon-settings-gear"></span>
+					</div>
+				</div>
 			</div>
 			<div class="flyoutPane">Flyout Pane</div>
 			<div class="file">File</div>
 		</div>
 		<div class="footer">
 			<div class="footerLeft">
-				<div class="footerRemoteDev">&gt;&lt;</div>
-				<div class="footerMenuItem">git vscode*</div>
-				<div class="footerMenuItem">O 0up 0dn</div>
-				<div class="footerMenuItem">x0 ⚠0</div>
-				<div class="footerMenuItem">⚙ html | ✔ index.html</div>
+				<div class="footerRemoteDev">
+					<span class="codicon codicon-remote"></span>
+				</div>
+				<div class="footerMenuItem">
+					<a>
+						<span class="codicon codicon-git-branch"></span>
+						master
+					</a>
+				</div>
+				<div class="footerMenuItem">
+					<a>
+						<span class="codicon codicon-error"></span>
+						0
+						<span class="codicon codicon-warning"></span>
+						0
+					</a>
+				</div>
+				<div class="footerMenuItem">
+					<a>
+						<span class="codicon codicon-gear"></span>
+						html |
+						<span class="codicon codicon-check"></span>
+						index.html
+					</a>
+				</div>
 			</div>
 			<div class="footerRight">
-				<div class="footerMenuItem">You, a few seconds ago</div>
+				<div class="footerMenuItem">
+					<a>
+						<span class="codicon codicon-git-commit"></span>
+						Ross, a few seconds ago
+					</a>
+				</div>
 				<div class="footerMenuItem">Ln 182, Col 54</div>
 				<div class="footerMenuItem">Tab Size: 4</div>
 				<div class="footerMenuItem">UTF-8</div>
 				<div class="footerMenuItem">CRLF</div>
 				<div class="footerMenuItem">HTML</div>
-				<div class="footerMenuItem">🎨</div>
-				<div class="footerMenuItem">👨‍🏫</div>
-				<div class="footerMenuItem">🔔</div>
+				<div class="footerMenuItem">
+					<span class="codicon codicon-paintcan"></span>
+				</div>
+				<div class="footerMenuItem">
+					<span class="codicon codicon-feedback"></span>
+				</div>
+				<div class="footerMenuItem">
+					<span class="codicon codicon-bell"></span>
+				</div>
 			</div>
 		</div>
 	</div>
