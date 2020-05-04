@@ -4,8 +4,9 @@
 <head>
 	<!--Lovingly hand-coded by Ross 😎-->
 	<title>ToastyMallows</title>
-	<link href="./font/codicon.css" rel="stylesheet">
-	<link href="index.css" rel="stylesheet">
+	<script src="./js/index.js"></script>
+	<link href="./css/codicon.css" rel="stylesheet">
+	<link href="./css/index.css" rel="stylesheet">
 	<style>
 		body {
 			border: 0;
@@ -46,6 +47,10 @@
 			align-items: center;
 			height: 100%;
 			justify-content: flex-start;
+			width: 33.3%;
+			flex-shrink: 2;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		.headerLeft * {
@@ -56,6 +61,11 @@
 
 		.headerTitle {
 			font-size: 12.5px;
+			width: 33.3%;
+			text-align: center;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			flex-shrink: 2;
 		}
 
 		.headerRight {
@@ -65,6 +75,7 @@
 			height: 100%;
 			justify-content: flex-end;
 			text-align: center;
+			width: 33.3%;
 		}
 
 		.headerRight .headerMenuItem {
@@ -226,6 +237,10 @@
 		.footerRemoteDev:hover {
 			background-color: #329171;
 		}
+
+		.hidden {
+			display: none;
+		}
 	</style>
 </head>
 
@@ -261,22 +276,23 @@
 		<div class="bodyWrapper">
 			<div class="sideMenu">
 				<div class="sideMenuTop">
-					<div class="sideMenuItem selectedSideMenuItem" title="Explorer (Ctrl+Shift+E)">
+					<div class="sideMenuItem selectedSideMenuItem" id="explorerMenuItem"
+						title="Explorer (Ctrl+Shift+E)">
 						<span class="codicon codicon-files"></span>
 					</div>
-					<div class="sideMenuItem" title="Search (Ctrl+Shift+F)">
+					<div class="sideMenuItem" id="searchMenuItem" title="Search (Ctrl+Shift+F)">
 						<span class="codicon codicon-search"></span>
 					</div>
-					<div class="sideMenuItem" title="Source Control (Ctrl+Shift+G)">
+					<div class="sideMenuItem" id="sourceControlMenuItem" title="Source Control (Ctrl+Shift+G)">
 						<span class="codicon codicon-git-branch"></span>
 					</div>
-					<div class="sideMenuItem" title="Run (Ctrl+Shift+D)">
+					<div class="sideMenuItem" id="runMenuItem" title="Run (Ctrl+Shift+D)">
 						<span class="codicon codicon-debug-alt-2"></span>
 					</div>
-					<div class="sideMenuItem" title="Remote Explorer">
+					<div class="sideMenuItem" id="remoteExplorerMenuItem" title="Remote Explorer">
 						<span class="codicon codicon-remote-explorer"></span>
 					</div>
-					<div class="sideMenuItem" title="Extensions (Ctrl+Shift+X)">
+					<div class="sideMenuItem" id="extensionsMenuItem" title="Extensions (Ctrl+Shift+X)">
 						<span class="codicon codicon-extensions"></span>
 					</div>
 				</div>
@@ -286,7 +302,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="flyoutPane">Flyout Pane</div>
+			<div class="flyoutPane" id="flyoutPane">
+				<div class="flyoutPaneItem" id="explorerFlyoutPane">Explorer</div>
+				<div class="flyoutPaneItem hidden" id="searchFlyoutPane">Search</div>
+				<div class="flyoutPaneItem hidden" id="sourceControlFlyoutPane">Source Control</div>
+				<div class="flyoutPaneItem hidden" id="runFlyoutPane">Debug</div>
+				<div class="flyoutPaneItem hidden" id="remoteExplorerFlyoutPane">Remote Explorer</div>
+				<div class="flyoutPaneItem hidden" id="extensionsFlyoutPane">Extensions</div>
+			</div>
 			<div class="file">File</div>
 		</div>
 		<div class="footer">
