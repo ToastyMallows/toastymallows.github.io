@@ -78,6 +78,10 @@
 			width: 33.3%;
 		}
 
+		.headerMenuItem {
+			overflow: visible;
+		}
+
 		.headerRight .headerMenuItem {
 			height: 30px;
 			width: 46px;
@@ -95,7 +99,7 @@
 
 		.headerIcon {
 			max-width: 32px;
-			padding: 6px 0 0 0;
+			padding: 10px 0 0 0;
 			margin: 0 5px 0 5px;
 		}
 
@@ -241,17 +245,21 @@
 		.hidden {
 			display: none;
 		}
+
+		.menu {
+			position: fixed;
+		}
 	</style>
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper" id="bodyWrapper">
 		<div class="header">
 			<div class="headerLeft">
 				<div class="headerIcon">
 					<img src="favicon.png" />
 				</div>
-				<div class="headerMenuItem">File</div>
+				<div class="headerMenuItem" id="fileMenuItem">File</div>
 				<div class="headerMenuItem">Edit</div>
 				<div class="headerMenuItem">Selection</div>
 				<div class="headerMenuItem">View</div>
@@ -334,10 +342,9 @@
 						0
 					</a>
 				</div>
-				<div class="footerMenuItem"
-					title='"index.html" is NOT spellchecked. The "html" language / filetype is not enabled.'>
+				<div class="footerMenuItem" title='"index.html" is spell checked.'>
 					<a>
-						<span class="codicon codicon-gear"></span>
+						<span class="codicon codicon-check"></span>
 						html |
 						<span class="codicon codicon-check"></span>
 						index.html
@@ -367,6 +374,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="hidden">
+		<div class="headerMenu" id="fileMenu"></div>
 	</div>
 </body>
 

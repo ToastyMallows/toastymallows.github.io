@@ -6,25 +6,28 @@
 			const SELECTED_SIDE_MENU_ITEM_CLASS = "selectedSideMenuItem";
 			const FLYOUT_PANE_ITEM_CLASS = "flyoutPaneItem";
 
+			let bodyWrapper = document.getElementById("bodyWrapper");
 			let flyoutPane = document.getElementById("flyoutPane");
 
-			let explorerMenuItem = document.getElementById("explorerMenuItem");
+			let explorerSideMenuItem = document.getElementById("explorerMenuItem");
 			let explorerFlyoutPane = document.getElementById("explorerFlyoutPane");
 
-			let searchMenuItem = document.getElementById("searchMenuItem");
+			let searchSideMenuItem = document.getElementById("searchMenuItem");
 			let searchFlyoutPane = document.getElementById("searchFlyoutPane");
 
-			let sourceControlMenuItem = document.getElementById("sourceControlMenuItem");
+			let sourceControlSideMenuItem = document.getElementById("sourceControlMenuItem");
 			let sourceControlFlyoutPane = document.getElementById("sourceControlFlyoutPane");
 
-			let runMenuItem = document.getElementById("runMenuItem");
+			let runSideMenuItem = document.getElementById("runMenuItem");
 			let runFlyoutPane = document.getElementById("runFlyoutPane");
 
-			let remoteExplorerMenuItem = document.getElementById("remoteExplorerMenuItem");
+			let remoteExplorerSideMenuItem = document.getElementById("remoteExplorerMenuItem");
 			let remoteExplorerFlyoutPane = document.getElementById("remoteExplorerFlyoutPane");
 
-			let extensionsMenuItem = document.getElementById("extensionsMenuItem");
+			let extensionsSideMenuItem = document.getElementById("extensionsMenuItem");
 			let extensionsFlyoutPane = document.getElementById("extensionsFlyoutPane");
+
+			let fileMenuItem = document.getElementById("fileMenuItem");
 
 			function isSideMenuItemSelected(sideMenuItem) {
 				return sideMenuItem.classList.contains(SELECTED_SIDE_MENU_ITEM_CLASS);
@@ -65,28 +68,43 @@
 			}
 
 			(function () {
-				explorerMenuItem.onclick = function () {
+				explorerSideMenuItem.onclick = function () {
 					updateFlyoutPane(this, explorerFlyoutPane);
 				};
 
-				searchMenuItem.onclick = function () {
+				searchSideMenuItem.onclick = function () {
 					updateFlyoutPane(this, searchFlyoutPane);
 				};
 
-				sourceControlMenuItem.onclick = function () {
+				sourceControlSideMenuItem.onclick = function () {
 					updateFlyoutPane(this, sourceControlFlyoutPane);
 				};
 
-				runMenuItem.onclick = function () {
+				runSideMenuItem.onclick = function () {
 					updateFlyoutPane(this, runFlyoutPane);
 				};
 
-				remoteExplorerMenuItem.onclick = function () {
+				remoteExplorerSideMenuItem.onclick = function () {
 					updateFlyoutPane(this, remoteExplorerFlyoutPane);
 				};
 
-				extensionsMenuItem.onclick = function () {
+				extensionsSideMenuItem.onclick = function () {
 					updateFlyoutPane(this, extensionsFlyoutPane);
+				};
+
+				fileMenuItem.onclick = function () {
+					// https://javascript.info/coordinates#using-for-fixed-positioning
+					let menu = document.createElement("div");
+					menu.classList.add("menu");
+
+					let coords = fileMenuItem.getBoundingClientRect();
+
+					menu.style.left = coords.left + "px";
+					menu.style.top = coords.bottom + "px";
+
+					menu.innerText = "file menu";
+
+					document.body.append(menu);
 				};
 			})();
 		}
